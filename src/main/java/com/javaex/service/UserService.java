@@ -21,4 +21,29 @@ public class UserService {
 			
 			return authUser;
 		}
+		
+		//회원가입
+		public int userJoin(UserVo userVo) {
+			System.out.println("userService.userJoin()접속");
+			
+			System.out.println(userVo);
+			
+			
+			return userDao.insertJoin(userVo);
+			
+		}
+		
+		public UserVo moUser(int authUserNo) {
+			System.out.println("UserService.moUser()접속");
+			
+			return userDao.moUser(authUserNo);
+			
+		}
+		
+		public int updateUser(UserVo userVo) {
+			System.out.println("UserService.updateUser()접속");
+			
+			return userDao.updateUser(userVo);
+		
+}
 }

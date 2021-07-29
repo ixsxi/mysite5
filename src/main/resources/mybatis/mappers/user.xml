@@ -15,5 +15,50 @@
 		
 		]]>   
    </select>
+   
+   	 <!-- 1사람의 정보 가져오기(로그인 확인용) -->
+   <insert id="insertUser" parameterType="com.javaex.vo.UserVo">
+		<![CDATA[
+				
+				 insert into users
+					values (
+					    seq_user_no.nextval,
+					    #{id},
+					    #{password},
+					    #{name},
+					    #{gender}
+					)
+		
+		
+		]]>   
+   </insert>
+   
+   		<!-- 1명가지고와서 이름 , 젠더 등 가지오려고 -->
+    <select id="selectoneUser" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
+		<![CDATA[
+				
+			select no, name ,id,password,gender
+			from users
+			where no=#{no}
+		
+		
+		]]>   
+   </select>
+   
+   	<!-- 수정 -->
+   <update id="updateUser" parameterType="com.javaex.vo.UserVo" >
+		<![CDATA[
+				
+			update users
+				set password = #{password},
+				name = #{name},
+				gender = #{gender}
+				where no = #{no}
+		
+		
+		]]>   
+   </update>
+   
+   
 
 </mapper>
