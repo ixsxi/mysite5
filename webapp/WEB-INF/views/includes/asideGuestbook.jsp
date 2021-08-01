@@ -8,13 +8,13 @@
 </head>
 <body>
 
-
 <div id="aside">
-				<h2>게시판</h2>
+				<h2>방명록</h2>
 				<ul>
-					<li><a href="">일반게시판</a></li>
-					<li><a href="">댓글게시판</a></li>
+					<li>일반방명록</li>
+					<li>ajax방명록</li>
 				</ul>
 			</div>
+
 </body>
 </html>

@@ -5,7 +5,7 @@
     
 <div id="header" class="clearfix">
 			<h1>
-				<a href="">MySite</a>
+				<a href="${pageContext.request.contextPath }/main">MySite</a>
 			</h1>
 
 			 <!--  로그인 성공이면 -->
@@ -35,7 +35,7 @@
 				<li><a href="">입사지원서</a></li>
 				<li><a href="${pageContext.request.contextPath }/board/list">게시판</a></li>
 				<li><a href="">갤러리</a></li>
-				<li><a href="">방명록</a></li>
+				<li><a href="${pageContext.request.contextPath }/guestbook/addList">방명록</a></li>
 			</ul>
 		</div>
 		<!-- //nav -->

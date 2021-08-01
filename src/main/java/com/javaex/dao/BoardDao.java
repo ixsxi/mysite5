@@ -70,4 +70,27 @@ public class BoardDao {
 		
 	}
 	
+	//수정폼
+	public BoardVo listOne(int no) {
+		System.out.println("BoardDao.listOne");
+		System.out.println(no);
+		
+		BoardVo boardVo = sqlSession.selectOne("board.selectBoard",no);
+		
+		return boardVo;
+		
+	}
+	//수정
+	public int modify(BoardVo boardVo) {
+		System.out.println("BoardDao.modify");
+		System.out.println(boardVo);
+		
+		
+		int count = sqlSession.update("board.updateModify",boardVo);
+		
+		return count;
+		
+	}
+	
+	
 }

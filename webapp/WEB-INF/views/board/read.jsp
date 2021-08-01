@@ -22,13 +22,8 @@
 		<!-- 헤더 네비 -->
 
 		<div id="container" class="clearfix">
-			<div id="aside">
-				<h2>게시판</h2>
-				<ul>
-					<li><a href="">일반게시판</a></li>
-					<li><a href="">댓글게시판</a></li>
-				</ul>
-			</div>
+					<c:import url="/WEB-INF/views/includes/asideBoard.jsp"></c:import>
+
 			<!-- //aside -->
 
 			<div id="content">
@@ -78,9 +73,10 @@
 								<span class="form-value" >${boardVo.content}
 								</span>
 							</div>
-							
-							<a id="btn_modify" href="">수정</a>
-							<a id="btn_modify" href="">목록</a>
+							<c:if test="${authUser.no eq boardVo.userNo }">
+							<a id="btn_modify" href="${pageContext.request.contextPath }/board/modifyForm?no=${boardVo.no}">수정</a>
+							</c:if>
+							<a id="btn_modify" href="${pageContext.request.contextPath }/board/list">목록</a>
 							
 						</form>
 						<!-- //form -->
@@ -94,9 +90,7 @@
 		</div>
 		<!-- //container  -->
 
-		<div id="footer">
-			Copyright ⓒ 2020 황일영. All right reserved
-		</div>
+			<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 		<!-- //footer -->
 	</div>
 	<!-- //wrap -->

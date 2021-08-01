@@ -55,6 +55,25 @@ public class BoardService {
 		return count;
 		
 	}
+		//수정폼
+	public BoardVo listOne(int no) {
+		System.out.println("BoardService.listOne");
+		System.out.println(no);
+		
+		BoardVo boardVo = boardDao.listOne(no);
+		
+		return boardVo;
+		
+	}
+	
+	public int modify(BoardVo boardVo) {
+		System.out.println("BoardService.modify");
+		System.out.println(boardVo);
+		
+		int count = boardDao.modify(boardVo);
+		return count;
+		
+	}
 	
 
 }
