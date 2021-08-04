@@ -46,4 +46,22 @@ public class GuestbookService {
 		
 		
 	}
+	
+	
+	//방명록 글 저장 _ 게시글 가져오기 
+	public GuestbookVo writeResultVo(GuestbookVo guestbookVo) {
+		System.out.println("guestbookService.writeResultVo");
+		//글저장
+		
+		System.out.println(guestbookVo); // no가없다
+		int count = guestbookDao.insertGuestbookkey(guestbookVo);
+		System.out.println(guestbookVo);	//no가있다
+		
+		int no = guestbookVo.getNo();//방금 저장한 글 번호
+		//글가져오기(방금등록한 번호)
+		GuestbookVo resultVo = guestbookDao.selectGeustbook(no);
+		
+		return resultVo;
+		
+	}
 }

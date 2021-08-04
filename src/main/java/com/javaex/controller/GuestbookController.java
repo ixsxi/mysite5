@@ -68,5 +68,15 @@ public class GuestbookController {
 		
 	}
 	
+	//ajax 방명록 메인페이지
+	
+	@RequestMapping(value = "/guestbook/ajaxMain",method= {RequestMethod.GET,RequestMethod.POST})
+	public String ajaxMain() {
+		System.out.println("guestbookController.ajaxMain");
+		
+		
+		return "guestbook/ajaxList";
+	}
+	
 	
 }
