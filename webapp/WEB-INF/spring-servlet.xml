@@ -64,7 +64,8 @@
 
 	</bean>
    
-   
+   <!-- url매핑-->
+<mvc:resources mapping="/upload/**" location="file:C:/java Study/upload/" />
    
 
 </beans>
