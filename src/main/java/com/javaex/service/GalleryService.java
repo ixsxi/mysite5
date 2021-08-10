@@ -44,7 +44,6 @@ public class GalleryService {
 		//파일 서버하드디스크에 저장
 		//파일정보를 db에 저장 
 		
-		
 		//뭔파일이름
 		String orgName =file.getOriginalFilename();
 		System.out.println("orgName:"+orgName);
@@ -81,6 +80,27 @@ public class GalleryService {
 		galleryDao.insert(galleryVo);
 				return;
 				
+		
+	}
+	
+	public GalleryVo oneView(int no) {
+		System.out.println("갤러리서비스 oneView");
+		System.out.println(no);
+		
+		
+		GalleryVo galleryVo = galleryDao.oneView(no);
+		
+		return galleryVo;
+		
+	}
+
+
+	public int galleryDelete(int no) {
+		System.out.println("서비스 갤러리삭제 접속");
+		System.out.println(no);
+		
+		return galleryDao.galleryDelete(no);
+		
 		
 	}
 	

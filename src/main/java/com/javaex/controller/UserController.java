@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.UserService;
 import com.javaex.vo.UserVo;
@@ -132,5 +134,29 @@ public class UserController {
 			
 			return "user/loginForm";
 		
+		}
+		
+		
+		//아이디체크 ajax
+		@ResponseBody
+		@RequestMapping(value = "/user/idcheck",method= {RequestMethod.GET,RequestMethod.POST})
+		public boolean idCheck(@RequestParam("id")String id) {
+			System.out.println("idcheck 접속");
+			System.out.println(id);
+			boolean state = userService.getUser(id);
+			
+			System.out.println(state);
+			
+			return state;
+		}
+		
+		//json방식으로 데이터 받기 
+		@ResponseBody
+		@RequestMapping(value = "/user/join2", method= {RequestMethod.GET,RequestMethod.POST})
+		public String join2(@RequestBody UserVo userVo) {
+			
+			System.out.println("조인 2 접속");
+			System.out.println(userVo);
+			return "";
 		}
 }

@@ -46,4 +46,13 @@ public class UserDao {
 		return sqlSession.update("user.updateUser",UserVo);
 
 	}
+	//회원정보 가져오기 --> 아이디체크
+	public UserVo selectUser(String id) {
+		System.out.println("userDao.selectUser");
+		
+		System.out.println(id);
+		
+		return sqlSession.selectOne("user.selectUserById",id);
+		
+	}
 }

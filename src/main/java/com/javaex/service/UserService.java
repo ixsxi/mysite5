@@ -46,4 +46,20 @@ public class UserService {
 			return userDao.updateUser(userVo);
 		
 }
+		
+		//회원가입폼 id사용유무 체크
+		public boolean getUser(String id) {
+			System.out.println("유저 서비스 .getUser");
+			
+			UserVo userVo = userDao.selectUser(id);
+			System.out.println(userVo);
+			
+			if(userVo == null) { //db에 없는 경우 --> 사용할 수 있는 아이디
+				return true;
+			}else { // db에 있는 경우 --> 사용중인 아이디
+				return false;
+			}
+			
+			
+		}
 }

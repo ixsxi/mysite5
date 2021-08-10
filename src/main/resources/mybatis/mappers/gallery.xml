@@ -45,7 +45,41 @@ order by g.no desc
 	</insert>
 
 
+<!-- 이미지 가져오려면 where 절에 no 값을 줘서 vo로 묶어서 가져옴 -->
 
+<select id="selectOneImg" parameterType="int" resultType="com.javaex.vo.GalleryVo">
+
+<![CDATA[
+
+select g.no,
+       g.user_no,
+       u.name,
+       g.content,
+       g.filepath,
+       g.orgname,
+       g.savename,
+       g.filesize
+from gallery g, users u
+where g.user_no = u.no
+and g.no = #{no}
+
+
+]]>
+
+</select>
+
+
+<!-- 삭제 만들기 -->
+
+<delete id="deletegallery" parameterType="int">
+
+<![CDATA[
+		delete from gallery
+		where no = #{no}
+
+
+]]>
+</delete>
 
 
 </mapper>

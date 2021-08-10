@@ -36,6 +36,27 @@ public class GalleryDao {
 	}
 
 
+	public GalleryVo oneView(int no) {
+		System.out.println("갤러리 다오 oneView");
+		System.out.println(no);
+		
+		 GalleryVo galleryVo = sqlSession.selectOne("gallery.selectOneImg",no);
+		
+		return galleryVo;
+	
+		
+	}
+
+
+	public int galleryDelete(int no) {
+		
+		
+		
+		return sqlSession.delete("gallery.deletegallery",no);
+		
+	}
+
+
 	
 	
 }
